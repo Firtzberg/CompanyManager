@@ -274,7 +274,7 @@ public class Subject {
      * @param quantity Number of new Subjects
      * @see com.hrca.hrvoje.companymanager.Subject#cost
      */
-    private void produce(double quantity) {
+    protected void produce(double quantity) {
         if (this.cost != null) {
             this.cost.consume(quantity);
         }

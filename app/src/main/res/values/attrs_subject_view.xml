@@ -1,0 +1,8 @@
+<resources>
+    <declare-styleable name="SubjectView">
+        <attr name="number" format="float" />
+        <attr name="image" format="reference" />
+        <attr name="cost_quantity" format="float" />
+        <attr name="cost_image" format="reference" />
+    </declare-styleable>
+</resources>

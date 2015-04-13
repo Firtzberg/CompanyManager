@@ -23,6 +23,6 @@ public class MenuActivity extends Activity {
     }
 
     public void newGame(View view) {
-
+        startActivity(new Intent(this, GameActivity.class));
     }
 }
