@@ -77,9 +77,9 @@ public class Subject {
          * @return The number of realized reductions.
          */
         public double consume(double multiplier) {
-            if (multiplier == 0.0)
-                return 0.0;
-            return this.subject.consume(multiplier * this.quantity) / multiplier;
+            if (this.quantity == 0.0)
+                return multiplier;
+            return this.subject.consume(multiplier * this.quantity) / this.quantity;
         }
     }
 
@@ -108,9 +108,9 @@ public class Subject {
          * @return The number of realized productions.
          */
         public double produce(double multiplier) {
-            if (multiplier == 0.0)
-                return 0.0;
-            return this.subject.produce(multiplier * this.quantity) / multiplier;
+            if (this.quantity == 0.0)
+                return multiplier;
+            return this.subject.produce(multiplier * this.quantity) / this.quantity;
         }
     }
 
