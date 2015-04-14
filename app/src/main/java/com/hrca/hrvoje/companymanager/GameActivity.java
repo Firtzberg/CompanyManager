@@ -7,6 +7,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 
@@ -37,6 +44,11 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
      */
     protected Drawable managerDrawable;
 
+    /**
+     * Filename for saving game stats.
+     */
+    public static final String saveFileName = "save.txt";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +56,8 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
 
         this.managerDrawable = getResources().getDrawable(R.drawable.manager);
 
-        this.subjects = this.getInitialSubjects();
+        this.turn = 0;
+        this.subjects = this.getSubjects();
         this.money = this.subjects.get(2);
         this.adapter = new SubjectGridAdapter(this, this.subjects);
         this.getSubject(10);
@@ -52,7 +65,6 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
         gridView.setAdapter(this.adapter);
 
         gridView.setOnItemClickListener(this);
-        this.turn = 0;
     }
 
     /**
@@ -60,7 +72,7 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
      *
      * @return Configured initial array of subjects.
      */
-    private ArrayList<Subject> getInitialSubjects() {
+    private ArrayList<Subject> getSubjects() {
         // Initialize resources
         Subject money = new Subject("Money")
                 .setImage(getResources().getDrawable(R.drawable.money));
@@ -76,8 +88,40 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
         Subject salesperson = new Subject("Salesperson")
                 .setImage(getResources().getDrawable(R.drawable.salesperson));
 
-        // Set money to $1
-        money.produce();
+        // Initialize lit and assign resources and basic employees
+        ArrayList<Subject> subjects = new ArrayList<>();
+        subjects.add(material);
+        subjects.add(product);
+        subjects.add(money);
+        subjects.add(purchaser);
+        subjects.add(producer);
+        subjects.add(salesperson);
+
+        // Try open saveFile
+        FileInputStream in;
+        BufferedReader reader = null;
+        try {
+            in = this.openFileInput(saveFileName);
+            reader = new BufferedReader(new InputStreamReader(in));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        if (reader == null) {
+            // Set money to $1
+            money.produce();
+        } else {
+            try {
+                // Parse turn
+                this.turn = Integer.parseInt(reader.readLine());
+                // Parse and assign quantities of created subjects
+                for (int i = 0; i < 6; i++) {
+                    subjects.get(i).produce(Double.parseDouble(reader.readLine()));
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
         // Configure costs of resources
         money.setCost(0.2, product);
@@ -94,14 +138,30 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
                 .setProduction(5, money)
                 .setMaintenance(1, money);
 
-        // Initialize and assign rows
-        ArrayList<Subject> subjects = new ArrayList<>();
-        subjects.add(material);
-        subjects.add(product);
-        subjects.add(money);
-        subjects.add(purchaser);
-        subjects.add(producer);
-        subjects.add(salesperson);
+        // If save exists
+        if (reader != null) {
+            String line;
+            Subject subject;
+            Subject above;
+            int i = 6;
+            try {
+                // Fill all other saved subjects
+                while ((line = reader.readLine()) != null) {
+                    above = subjects.get(i - 3);
+                    subject = new Subject("Manager")
+                            .setImage(getResources().getDrawable(R.drawable.manager))
+                            .setMaintenance(1, money)
+                            .setProduction(1, above);
+                    subject.produce(Double.parseDouble(line));
+                    subject.setCost(above.getCost().getQuantity() * 10, money);
+                    subjects.add(subject);
+                    i++;
+                }
+                reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
         return subjects;
     }
@@ -162,6 +222,36 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
                 this.subjects.get(row * columns + i).nextTurn();
         }
         this.turn++;
+        // Auto save
+        this.save();
         this.adapter.notifyDataSetChanged();
+    }
+
+    /**
+     * Save current game stats to file.
+     *
+     * @see com.hrca.hrvoje.companymanager.GameActivity#saveFileName
+     */
+    public void save() {
+        FileOutputStream out = null;
+        try {
+            out = this.openFileOutput(saveFileName, MODE_PRIVATE);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
+        ;
+        OutputStreamWriter writer = new OutputStreamWriter(out);
+        try {
+            writer.write(Integer.toString(this.turn));
+            for (int i = 0; i < this.subjects.size(); i++) {
+                writer.write('\n');
+                writer.write(Double.toString(this.subjects.get(i).getNumber()));
+            }
+            writer.close();
+            out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
