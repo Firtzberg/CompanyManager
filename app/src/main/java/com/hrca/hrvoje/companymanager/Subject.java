@@ -72,11 +72,14 @@ public class Subject {
         /**
          * Reduce the subject by the quantity several times.
          *
-         * @param multiplier The number of reductions.
+         * @param multiplier The number of wanted reductions.
          * @see com.hrca.hrvoje.companymanager.Subject#consume(double)
+         * @return The number of realized reductions.
          */
-        public void consume(double multiplier) {
-            this.subject.consume(multiplier * this.quantity);
+        public double consume(double multiplier) {
+            if (multiplier == 0.0)
+                return 0.0;
+            return this.subject.consume(multiplier * this.quantity) / multiplier;
         }
     }
 
@@ -100,11 +103,14 @@ public class Subject {
         /**
          * Produce the Amount several times.
          *
-         * @param multiplier The number of productions.
+         * @param multiplier The number of wanted productions.
          * @see com.hrca.hrvoje.companymanager.Subject#produce(double)
+         * @return The number of realized productions.
          */
-        public void produce(double multiplier) {
-            this.subject.produce(multiplier * this.quantity);
+        public double produce(double multiplier) {
+            if (multiplier == 0.0)
+                return 0.0;
+            return this.subject.produce(multiplier * this.quantity) / multiplier;
         }
     }
 
@@ -261,33 +267,43 @@ public class Subject {
 
     /**
      * Reduce total number of subjects.
-     *
-     * @param quantity Quantity by which the number is reduced.
+     * If there are not enough subjects, their number will be set to zero.
+     * @param quantity The wanted quantity by which the number is reduced.
+     * @return The quantity by which the number is reduced.
      */
-    private void consume(double quantity) {
-        this.number -= quantity;
+    public double consume(double quantity) {
+        if (this.number >= quantity) {
+            this.number -= quantity;
+            return quantity;
+        }
+        quantity = this.number;
+        this.number = 0;
+        return quantity;
     }
 
     /**
      * Produce several new subjects. For each new subject the production costs have to be paid.
-     *
-     * @param quantity Number of new Subjects
+     * If there are not enough resources available, less subjects will be produced.
+     * @param quantity The number of wanted new subjects.
      * @see com.hrca.hrvoje.companymanager.Subject#cost
+     * @return The number of produced new subjects.
      */
-    protected void produce(double quantity) {
+    public double produce(double quantity) {
         if (this.cost != null) {
-            this.cost.consume(quantity);
+            quantity = this.cost.consume(quantity);
         }
         this.number += quantity;
+        return quantity;
     }
 
     /**
      * Produce one new Subject. The production costs are paid.
      *
      * @see com.hrca.hrvoje.companymanager.Subject#produce(double)
+     * @return The number of produced new subjects.
      */
-    public void produce() {
-        this.produce(1);
+    public double produce() {
+        return this.produce(1);
     }
 
     /**
