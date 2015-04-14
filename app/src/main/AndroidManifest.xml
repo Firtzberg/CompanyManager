@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hrca.hrvoje.companymanager">
+    package="com.hrca.hrvoje.companymanager"
+    android:installLocation="auto">
 
     <application
         android:allowBackup="true"
@@ -13,7 +14,7 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

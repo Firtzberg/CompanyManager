@@ -1,6 +1,8 @@
 package com.hrca.hrvoje.companymanager;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -36,6 +38,7 @@ public class MenuActivity extends Activity {
 
     /**
      * Start InstructionsActivity.
+     *
      * @param view The pressed view.
      */
     public void instructions(View view) {
@@ -44,10 +47,33 @@ public class MenuActivity extends Activity {
 
     /**
      * Erase game stats and start GameActivity.
+     *
      * @param view The pressed view.
      */
     public void newGame(View view) {
-        this.deleteFile(GameActivity.saveFileName);
-        this.continu(view);
+        File save = getBaseContext().getFileStreamPath(GameActivity.saveFileName);
+        if (save.exists()) {
+            new AlertDialog.Builder(this)
+                    .setTitle("New game?")
+                    .setMessage("All data will be erased!")
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            MenuActivity.this.deleteFile(GameActivity.saveFileName);
+                            MenuActivity.this.continu(null);
+                            dialog.cancel();
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    })
+                    .show();
+        } else {
+            this.continu(view);
+        }
     }
 }
