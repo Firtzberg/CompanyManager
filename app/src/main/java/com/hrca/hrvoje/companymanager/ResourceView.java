@@ -142,7 +142,7 @@ public class ResourceView extends RelativeLayout {
      * @param number The formatted number.
      * @return String representation.
      */
-    private String toShortNumberFormat(double number) {
+    public static String toShortNumberFormat(double number) {
         String[] Letters = new String[]{
                 "", "K", "M", "G", "T", "P", "E", "Z", "Y"
         };
@@ -152,10 +152,14 @@ public class ResourceView extends RelativeLayout {
             number /= 1000;
         }
         String base;
-        if (number == (int) number) {
+        if (grade == 0) {
             base = Integer.toString((int) number);
         } else {
-            number = Math.round(number * 10.0) / 10.0;
+            if (number >= 10.0) {
+                number = Math.round(number * 10.0) / 10.0;
+            } else {
+                number = Math.round(number * 100.0) / 100.0;
+            }
             base = Double.toString(number);
         }
         if (grade < Letters.length)

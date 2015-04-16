@@ -255,7 +255,7 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
             new AlertDialog.Builder(this)
                     .setTitle("Game over")
                     .setMessage("You lost after " + Integer.toString(this.turn) + " turns.\n" +
-                            "You had a total of " + Integer.toString((int) totalEmployees) + " employees.")
+                            "You had a total of " + ResourceView.toShortNumberFormat(totalEmployees) + " employees.")
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
