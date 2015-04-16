@@ -262,6 +262,7 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
                             GameActivity.this.finish();
                         }
                     }).show();
+            return;
         }
         // In case of persons hire them after the already hired people did their jobs
         if (gridId == R.id.employeesGrid) {
