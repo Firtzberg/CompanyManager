@@ -254,6 +254,7 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
             this.deleteFile(GameActivity.saveFileName);
             new AlertDialog.Builder(this)
                     .setTitle("Game over")
+                    .setCancelable(false)
                     .setMessage("You lost after " + Integer.toString(this.turn) + " turns.\n" +
                             "You had a total of " + ResourceView.toShortNumberFormat(totalEmployees) + " employees.")
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
