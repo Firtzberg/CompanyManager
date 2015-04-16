@@ -267,6 +267,9 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
         if (gridId == R.id.employeesGrid) {
             resource.produce();
         }
+
+        // Auto save
+        this.save();
     }
 
     /**
@@ -290,16 +293,14 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
             if (this.employees.get(i).pay() != 0.0)
                 return false;
         }
-        // Auto save
-        this.save();
-
-        // Refresh displayed data
-        this.resourceAdapter.notifyDataSetChanged();
-        this.employeeAdapter.notifyDataSetChanged();
         // If next manager is affordable, force adding it to the display
         while (this.money.getNumber() >= this.nextManagerCost) {
             this.getEmployee(this.employees.size());
         }
+
+        // Refresh displayed data
+        this.resourceAdapter.notifyDataSetChanged();
+        this.employeeAdapter.notifyDataSetChanged();
         return true;
     }
 
