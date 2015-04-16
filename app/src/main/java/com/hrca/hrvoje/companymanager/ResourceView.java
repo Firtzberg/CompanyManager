@@ -9,58 +9,58 @@ import android.widget.TextView;
 
 
 /**
- * This view is a graphical representation of a subject.
+ * This view is a graphical representation of a resource.
  */
-public class SubjectView extends RelativeLayout {
+public class ResourceView extends RelativeLayout {
 
     /**
-     * The subject this view represents.
+     * The resource this view represents.
      */
-    protected Subject subject;
+    protected Resource resource;
 
     /**
-     * View for displaying the total amount of the subjects.
+     * View for displaying the total amount of the resources.
      *
-     * @see com.hrca.hrvoje.companymanager.Subject#number
+     * @see Resource#number
      */
     protected final TextView quantity;
 
     /**
-     * View for displaying the subject's image.
+     * View for displaying the resource's image.
      *
-     * @see com.hrca.hrvoje.companymanager.Subject#image
+     * @see Resource#image
      */
     protected final ImageView image;
 
     /**
-     * View for displaying the quantity of the subject's costs.
+     * View for displaying the quantity of the resource's costs.
      *
-     * @see com.hrca.hrvoje.companymanager.Subject#cost
-     * @see com.hrca.hrvoje.companymanager.Subject.ConsumableAmount#quantity
+     * @see Resource#cost
+     * @see Resource.ConsumableAmount#quantity
      */
     protected final TextView costQuantity;
 
     /**
-     * View for displaying the image of the subject's costs.
+     * View for displaying the image of the resource's costs.
      *
-     * @see com.hrca.hrvoje.companymanager.Subject#cost
-     * @see com.hrca.hrvoje.companymanager.Subject.ConsumableAmount#subject
-     * @see com.hrca.hrvoje.companymanager.Subject#image
+     * @see Resource#cost
+     * @see Resource.ConsumableAmount#resource
+     * @see Resource#image
      */
     protected final ImageView costImage;
 
-    public SubjectView(Context context) {
+    public ResourceView(Context context) {
         this(context, null);
     }
 
-    public SubjectView(Context context, AttributeSet attrs) {
+    public ResourceView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public SubjectView(Context context, AttributeSet attrs, int defStyle) {
+    public ResourceView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
-        inflate(context, R.layout.view_subject, this);
+        inflate(context, R.layout.view_resource, this);
         this.image = (ImageView) this.findViewById(R.id.image);
         this.quantity = (TextView) this.findViewById(R.id.quantity);
         this.costImage = (ImageView) this.findViewById(R.id.cost_image);
@@ -75,64 +75,64 @@ public class SubjectView extends RelativeLayout {
 
         // Load attributes
         final TypedArray a = getContext().obtainStyledAttributes(
-                attrs, R.styleable.SubjectView, defStyle, 0);
+                attrs, R.styleable.ResourceView, defStyle, 0);
 
-        // Initialize subject
-        this.subject = new Subject("Unnamed");
+        // Initialize resource
+        this.resource = new Resource("Unnamed");
         // Set number
-        this.subject.produce(a.getFloat(R.styleable.SubjectView_number, 1000));
+        this.resource.produce(a.getFloat(R.styleable.ResourceView_number, 1000));
         // Set image if available
-        if (a.hasValue(R.styleable.SubjectView_image)) {
-            this.subject.setImage(a.getDrawable(
-                    R.styleable.SubjectView_image));
+        if (a.hasValue(R.styleable.ResourceView_image)) {
+            this.resource.setImage(a.getDrawable(
+                    R.styleable.ResourceView_image));
         }
 
         // Initialize costs
-        Subject cost = new Subject("Unnamed");
+        Resource cost = new Resource("Unnamed");
         // Set costs image if available
-        if (a.hasValue(R.styleable.SubjectView_cost_image)) {
+        if (a.hasValue(R.styleable.ResourceView_cost_image)) {
             cost.setImage(a.getDrawable(
-                    R.styleable.SubjectView_cost_image));
+                    R.styleable.ResourceView_cost_image));
         }
         // Set costs
-        this.subject.setCost(a.getFloat(R.styleable.SubjectView_cost_quantity, 1F), cost);
+        this.resource.setCost(a.getFloat(R.styleable.ResourceView_cost_quantity, 1F), cost);
 
         a.recycle();
         this.adjust();
     }
 
     /**
-     * Update view using data from subject
+     * Update view using data from resource
      */
     public void adjust() {
-        if (this.subject == null)
+        if (this.resource == null)
             return;
-        this.image.setImageDrawable(this.subject.getImage());
-        this.quantity.setText(this.toShortNumberFormat(this.subject.getNumber()));
+        this.image.setImageDrawable(this.resource.getImage());
+        this.quantity.setText(this.toShortNumberFormat(this.resource.getNumber()));
 
-        Subject.Amount cost = this.subject.getCost();
+        Amount cost = this.resource.getCost();
         if (cost == null)
             return;
-        this.costImage.setImageDrawable(cost.getSubject().getImage());
+        this.costImage.setImageDrawable(cost.getResource().getImage());
         this.costQuantity.setText(this.toShortNumberFormat(cost.getQuantity()));
     }
 
     /**
-     * Gets displayed subject.
+     * Gets displayed resource.
      *
-     * @return Subject which this view displays.
+     * @return Resource which this view displays.
      */
-    public Subject getSubject() {
-        return this.subject;
+    public Resource getResource() {
+        return this.resource;
     }
 
     /**
-     * Set displayed subject.
+     * Set displayed resource.
      *
-     * @param subject Subject which this view displays.
+     * @param resource Resource which this view displays.
      */
-    public void setSubject(Subject subject) {
-        this.subject = subject;
+    public void setResource(Resource resource) {
+        this.resource = resource;
         this.adjust();
     }
 
