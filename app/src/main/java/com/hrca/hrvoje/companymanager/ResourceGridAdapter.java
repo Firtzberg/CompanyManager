@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 
 import java.util.ArrayList;
 
@@ -53,12 +54,22 @@ public class ResourceGridAdapter extends BaseAdapter {
     }
 
     @Override
+    public boolean areAllItemsEnabled() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled(int position) {
+        return this.resources.get(position).isAffordable(1.0);
+    }
+
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ResourceView resourceView;
         if (convertView == null) {
             // Initialize resourceView
             resourceView = new ResourceView(context);
-            resourceView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            resourceView.setLayoutParams(new GridView.LayoutParams(GridView.LayoutParams.WRAP_CONTENT, GridView.LayoutParams.WRAP_CONTENT));
         } else {
             //cast
             resourceView = (ResourceView) convertView;
