@@ -46,6 +46,15 @@ public class MenuActivity extends Activity {
     }
 
     /**
+     * Start ScoresActivity.
+     *
+     * @param view The pressed view.
+     */
+    public void scores(View view) {
+        startActivity(new Intent(this, ScoresActivity.class));
+    }
+
+    /**
      * Erase game stats and start GameActivity.
      *
      * @param view The pressed view.

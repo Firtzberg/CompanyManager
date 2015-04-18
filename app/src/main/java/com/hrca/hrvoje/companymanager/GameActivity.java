@@ -22,6 +22,11 @@ import java.util.ArrayList;
 public class GameActivity extends Activity implements AdapterView.OnItemClickListener {
 
     /**
+     * Number of turn after which the game is won.
+     */
+    public static final int maxTurns = 250;
+
+    /**
      * Number of the turn. When game starts it is 0.
      */
     protected int turn;
@@ -250,6 +255,8 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
         }
         // Everyone does its job
         boolean success = this.nextTurn();
+
+        // Game lost
         if (!success || (gridId == R.id.employeesGrid && !resource.isAffordable(1))) {
             this.deleteFile(GameActivity.saveFileName);
             new AlertDialog.Builder(this)
@@ -265,9 +272,35 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
                     }).show();
             return;
         }
+
         // In case of persons hire them after the already hired people did their jobs
         if (gridId == R.id.employeesGrid) {
             resource.produce();
+        }
+
+        // Game won
+        if (this.turn >= maxTurns) {
+            // Recalculate number of employees and save to scores
+            totalEmployees = 0;
+            for (int i = 0; i < this.employees.size(); i++) {
+                totalEmployees += this.employees.get(i).getNumber();
+            }
+            ScoreHelper.add(this, totalEmployees);
+
+            this.deleteFile(GameActivity.saveFileName);
+
+            new AlertDialog.Builder(this)
+                    .setTitle("Victory")
+                    .setCancelable(false)
+                    .setMessage("You won after " + Integer.toString(this.turn) + " turns.\n" +
+                            "You had a total of " + ResourceView.toShortNumberFormat(totalEmployees) + " employees.")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            GameActivity.this.finish();
+                        }
+                    }).show();
+            return;
         }
 
         // Auto save
