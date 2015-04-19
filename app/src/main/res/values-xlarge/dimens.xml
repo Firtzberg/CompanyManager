@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="resource_view_image_margins">44dp</dimen>
+    <dimen name="resource_view_text_size">26sp</dimen>
+    <dimen name="resource_view_text_top_margin">15dp</dimen>
+</resources>

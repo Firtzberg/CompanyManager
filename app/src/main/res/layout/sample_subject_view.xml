@@ -5,7 +5,7 @@
 
     <com.hrca.hrvoje.companymanager.ResourceView
         android:background="#ccc"
-        android:layout_width="150dp"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         app1:image="@drawable/producer"
         app1:number="12"

@@ -15,17 +15,18 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="@dimen/resource_view_text_top_margin"
         android:id="@+id/linearLayout">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/resource_view_text_size"
             android:id="@+id/cost_quantity" />
 
         <ImageView
-            android:layout_width="14dp"
-            android:layout_height="14dp"
+            android:layout_width="@dimen/resource_view_text_size"
+            android:layout_height="@dimen/resource_view_text_size"
             android:id="@+id/cost_image" />
     </LinearLayout>
 
@@ -33,8 +34,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/image"
-        android:layout_marginLeft="21dp"
-        android:layout_marginRight="21dp"
+        android:layout_marginLeft="@dimen/resource_view_image_margins"
+        android:layout_marginRight="@dimen/resource_view_image_margins"
         android:layout_below="@+id/linearLayout"
         android:adjustViewBounds="true"
         android:layout_centerHorizontal="true" />
@@ -42,6 +43,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="@dimen/resource_view_text_size"
         android:id="@+id/quantity"
         android:layout_below="@+id/image"
         android:layout_centerHorizontal="true" />

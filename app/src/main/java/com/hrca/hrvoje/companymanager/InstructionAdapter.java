@@ -50,7 +50,8 @@ public class InstructionAdapter {
             "A producer produces 1 product each turn.",
             "A salesperson sells 1 product each turn.",
             "A manager hires a new employee each turn. Always of the same profession.",
-            "Managers can hire other managers."
+            "Managers can hire other managers.",
+            "Have as many employees as possible after " + GameActivity.maxTurns + " turns."
     };
 
     /**
