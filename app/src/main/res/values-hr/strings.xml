@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Direktor poduzeća</string>
+    <string name="continu">Nastavi</string>
+    <string name="instructions">Upute</string>
+    <string name="new_game">Nova Igra</string>
+    <string name="previous">Natrag</string>
+    <string name="next">Dalje</string>
+    <string name="high_scores">Najbolji rezultati</string>
+    <string name="remaining_turns">Preostali potezi: %d</string>
+    <string-array name="instruction_texts">
+        <item>Igra je na poteze.</item>
+        <item>Svaki potez morate nešto učiniti - kupiti, preraditi, prodati ili zaposliti.</item>
+        <item>Izgubili ste kada novac padne ispod 0.</item>
+        <item>Zarađujete novac prodajom proizvoda.</item>
+        <item>Gubite novac kupovinom, isplatom plaća i zapošljavanjem.</item>
+        <item>Cijena 1 materijala je 1€.</item>
+        <item>Za izradu 1 proizvoda je potreban 1 materijal.</item>
+        <item>Prodajom 1 proizvoda se zaradi 5€.</item>
+        <item>Zapošljavanje zahtjeva novčano ulaganje, ovisno o vrsti novog zaposlenika.</item>
+        <item>Svaki potez plaćate svakog zaposlenika 1€.</item>
+        <item>Ne možete otpuštati zaposlenike.</item>
+        <item>Dobaljač u svakom potezu kupuje 1 materijal.</item>
+        <item>Prerađivač u svakom potezu izradi 1 proizvod.</item>
+        <item>Prodavač u svakom potezu proda 1 proizvod.</item>
+        <item>Voditelj u svakom potezu zapošljava novog zaposlenika.</item>
+        <item>Vrsta novog zaposlenika ovisi o vrsti voditelja.</item>
+        <item>Voditelji mogu zaposliti druge vrste voditelja.</item>
+        <item>Imajte što više zaposlenika nakon %d poteza.</item>
+    </string-array>
+    <string name="victory">Pobjeda</string>
+    <string name="won_after">Pobijedili ste nakon %d poteza.</string>
+    <string name="game_over">Kraj igre</string>
+    <string name="lost_after">Izgubili ste nakon %d poteza.</string>
+    <string name="no_possible_actions">Nema mogućih poteza.</string>
+    <string name="had_employees">Imali ste ukupno %s djelatnika.</string>
+</resources>

@@ -96,7 +96,7 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
         employeesGrid.setOnItemClickListener(this);
 
         this.turnsView = (TextView) findViewById(R.id.turnsView);
-        this.turnsView.setText("Remaining turns: " + Integer.toString(maxTurns - this.turn));
+        this.turnsView.setText(formattedString(R.string.remaining_turns, maxTurns - this.turn));
     }
 
     /**
@@ -244,6 +244,16 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
         return manager;
     }
 
+    /**
+     * Shortcut to format a resource string with arguments
+     * @param stringId Id of the resource string.
+     * @param args Arguments for formatting the string.
+     * @return Formatted resource string.
+     */
+    private String formattedString(int stringId, Object... args){
+        return String.format(this.getResources().getString(stringId), args);
+    }
+
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         int gridId = parent.getId();
@@ -269,10 +279,10 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
         if (!success || (gridId == R.id.employeesGrid && !resource.isAffordable(1))) {
             this.deleteFile(GameActivity.saveFileName);
             new AlertDialog.Builder(this)
-                    .setTitle("Game over")
+                    .setTitle(GameActivity.this.getResources().getString(R.string.game_over))
                     .setCancelable(false)
-                    .setMessage("You lost after " + Integer.toString(this.turn) + " turns.\n" +
-                            "You had a total of " + ResourceView.toShortNumberFormat(totalEmployees) + " employees.")
+                    .setMessage(GameActivity.this.formattedString(R.string.lost_after, GameActivity.this.turn) + "\n" +
+                            GameActivity.this.formattedString(R.string.had_employees, ResourceView.toShortNumberFormat(totalEmployees)))
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -299,10 +309,10 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
             this.deleteFile(GameActivity.saveFileName);
 
             new AlertDialog.Builder(this)
-                    .setTitle("Victory")
+                    .setTitle(GameActivity.this.getResources().getString(R.string.victory))
                     .setCancelable(false)
-                    .setMessage("You won after " + Integer.toString(this.turn) + " turns.\n" +
-                            "You had a total of " + ResourceView.toShortNumberFormat(totalEmployees) + " employees.")
+                    .setMessage(GameActivity.this.formattedString(R.string.won_after, GameActivity.this.turn) + "\n" +
+                            GameActivity.this.formattedString(R.string.had_employees, ResourceView.toShortNumberFormat(totalEmployees)))
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -324,10 +334,11 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
         if (!success) {
             this.deleteFile(GameActivity.saveFileName);
             new AlertDialog.Builder(this)
-                    .setTitle("Game over")
+                    .setTitle(GameActivity.this.getResources().getString(R.string.game_over))
                     .setCancelable(false)
-                    .setMessage("You lost after " + Integer.toString(this.turn) + " turns because there is no possible action.\n" +
-                            "You had a total of " + ResourceView.toShortNumberFormat(totalEmployees) + " employees.")
+                    .setMessage(GameActivity.this.formattedString(R.string.lost_after, GameActivity.this.turn) + "\n" +
+                            GameActivity.this.formattedString(R.string.no_possible_actions) + "\n" +
+                            GameActivity.this.formattedString(R.string.had_employees, ResourceView.toShortNumberFormat(totalEmployees)))
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -370,7 +381,7 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
         // Refresh displayed data
         this.resourceAdapter.notifyDataSetChanged();
         this.employeeAdapter.notifyDataSetChanged();
-        this.turnsView.setText("Remaining turns: " + Integer.toString(maxTurns - this.turn));
+        this.turnsView.setText(this.formattedString(R.string.remaining_turns, maxTurns - this.turn));
         return true;
     }
 

@@ -34,25 +34,7 @@ public class InstructionAdapter {
     /**
      * Instruction texts.
      */
-    private static final String[] INSTRUCTIONS = new String[]{
-            "The game is turn based.",
-            "Each turn you can perform one action - buy, produce, sell or hire.",
-            "The game is over when your money is below 0.",
-            "You earn money by selling products.",
-            "You loose money by buying, salary and hiring.",
-            "Raw material costs $1.",
-            "You need 1 raw material to produce 1 product.",
-            "You sell 1 product for $5.",
-            "You have to pay money when hiring a new employee.",
-            "You pay every employee $1 each turn.",
-            "You can't fire anybody.",
-            "A purchaser buys 1 raw material each turn.",
-            "A producer produces 1 product each turn.",
-            "A salesperson sells 1 product each turn.",
-            "A manager hires a new employee each turn. Always of the same profession.",
-            "Managers can hire other managers.",
-            "Have as many employees as possible after " + GameActivity.maxTurns + " turns."
-    };
+    private String[] instructionTexts;
 
     /**
      * Create a new instance of Instruction adapter with hardcoded instructions
@@ -62,6 +44,12 @@ public class InstructionAdapter {
     public InstructionAdapter(Context context) {
         this.context = context;
         this.position = 0;
+
+        //Load instruction texts
+        this.instructionTexts = context.getResources().getStringArray(R.array.instruction_texts);
+        this.instructionTexts[this.instructionTexts.length - 1] = String.format(
+                this.instructionTexts[this.instructionTexts.length - 1], GameActivity.maxTurns
+        );
 
         // Loading all drawables
         this.moneyDrawable = context.getResources().getDrawable(R.drawable.money);
@@ -102,7 +90,7 @@ public class InstructionAdapter {
      */
     public InstructionView next() {
         this.position++;
-        if (position >= INSTRUCTIONS.length)
+        if (position >= instructionTexts.length)
             return null;
         return this.getView();
     }
@@ -138,7 +126,7 @@ public class InstructionAdapter {
             result = this.productionInstructionView;
         }
         //cases when employeeInstructionView is required
-        else if (this.position >= 11 && this.position <= 15) {
+        else if (this.position >= 11 && this.position <= 16) {
             // Lazy employeeInstructionView initialization
             if (this.employeeInstructionView == null)
                 this.employeeInstructionView = new EmployeeInstructionView(this.context);
@@ -160,11 +148,12 @@ public class InstructionAdapter {
                     this.employeeInstructionView.setEmployeeImage(this.salespersonDrawable);
                     break;
                 case 14:
+                case 15:
                     this.employeeInstructionView.setPrimaryImage(this.moneyDrawable);
                     this.employeeInstructionView.setFinalImage(this.producerDrawable);
                     this.employeeInstructionView.setEmployeeImage(this.managerDrawable);
                     break;
-                case 15:
+                case 16:
                     this.employeeInstructionView.setPrimaryImage(this.moneyDrawable);
                     this.employeeInstructionView.setFinalImage(this.managerDrawable);
                     this.employeeInstructionView.setEmployeeImage(this.managerDrawable);
@@ -173,7 +162,7 @@ public class InstructionAdapter {
             result = this.employeeInstructionView;
         }
         //cases when textInstructionView is required
-        else if (this.position >= 0 && this.position < INSTRUCTIONS.length) {
+        else if (this.position >= 0 && this.position < instructionTexts.length) {
             // Lazy textInstructionView initialization
             if (this.textInstructionView == null)
                 this.textInstructionView = new TextInstructionView(this.context);
@@ -182,7 +171,7 @@ public class InstructionAdapter {
 
         // Setting the instruction text
         if (result != null)
-            result.setText(INSTRUCTIONS[this.position]);
+            result.setText(instructionTexts[this.position]);
 
         return result;
     }
@@ -202,6 +191,6 @@ public class InstructionAdapter {
      * @return Total number of instruction.
      */
     public int getCount() {
-        return INSTRUCTIONS.length;
+        return instructionTexts.length;
     }
 }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Gestore dell\'Azienda</string>
+    <string name="continu">Continua</string>
+    <string name="instructions">Istruzioni</string>
+    <string name="new_game">Nuova Partita</string>
+    <string name="previous">Precedente</string>
+    <string name="next">Successivo</string>
+    <string name="high_scores">Miglior punteggio</string>
+    <string name="remaining_turns">Giri rimanenti: %d</string>
+    <string name="victory">Vittoria</string>
+    <string name="won_after">Lei ha vinto dopo %d giri.</string>
+    <string name="game_over">Partita Persa</string>
+    <string name="lost_after">Lei ha perso dopo %d giri.</string>
+    <string name="no_possible_actions">Non ci sono azioni possibili.</string>
+    <string name="had_employees">Ha avuto un totale di %s impiegato</string>
+    <string-array name="instruction_texts">
+        <item>Il gioco è a turni.</item>
+        <item>A ogni turno è possibile eseguire un\'azione - acquistare, produrre, vendere o affittare.</item>
+        <item>Il gioco si perde quando il Suo denaro è inferiore a 0.</item>
+        <item>Guadagna con la vendita di prodotti.</item>
+        <item>I soldi si spendono per l\'acquisto, i salari e gli impieghi.</item>
+        <item>Un materiale costa 1€.</item>
+        <item>Per produrre 1 prodotto ci bisogna 1 materiale.</item>
+        <item>Un prodotto si vende per 5 €.</item>
+        <item>Deve pagare soldi per l\'impiego di un nuovo impiegato.</item>
+        <item>Ogni impiegato si paga 1€ a ogni turno.</item>
+        <item>Non si può licenziare nessun impiegato.</item>
+        <item>Ogni acquirente acquista 1 materiale a ogni turno.</item>
+        <item>Ogni produttore produce 1 prodotto a ogni turno.</item>
+        <item>Ogni venditore vende 1 prodotto a ogni turno.</item>
+        <item>Ogni direttore impiega un nuovo impiegato a ogni turno.</item>
+        <item>Il tipo del nuovo impiegato dipende dal tipo del direttore.</item>
+        <item>I deirettore possono impiegare altri direttore.</item>
+        <item>Abbia il piú possibile numero degli impiegati dopo %d turni.</item>
+    </string-array>
+</resources>

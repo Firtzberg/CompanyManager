@@ -1,12 +1,39 @@
 <resources>
     <string name="app_name">Company Manager</string>
-    <string name="title_activity_instructions">InstructionsActivity</string>
-    <string name="title_activity_game">GameActivity</string>
-    <string name="title_activity_scores">ScoresActivity</string>
+    <string name="title_activity_scores">High Score Activity</string>
+    <string name="title_activity_game">Game Activity</string>
+    <string name="title_activity_instructions">Instructions Activity</string>
     <string name="continu">Continue</string>
     <string name="instructions">Instructions</string>
     <string name="new_game">New Game</string>
     <string name="previous">Previous</string>
     <string name="next">Next</string>
     <string name="high_scores">High Scores</string>
+    <string name="remaining_turns">Remaining turns: %d</string>
+    <string name="victory">Victory</string>
+    <string name="won_after">You won after %d turns.</string>
+    <string name="game_over">Game Over</string>
+    <string name="lost_after">You lost after %d turns.</string>
+    <string name="no_possible_actions">There is no possible action.</string>
+    <string name="had_employees">You had a total of %s employees.</string>
+    <string-array name="instruction_texts">
+        <item>The game is turn based.</item>
+        <item>Each turn you can perform one action - buy, produce, sell or hire.</item>
+        <item>The game is over when your money is below 0.</item>
+        <item>You earn money by selling products.</item>
+        <item>You loose money by buying, salary and hiring.</item>
+        <item>Raw material costs $1.</item>
+        <item>You need 1 raw material to produce 1 product.</item>
+        <item>You sell 1 product for $5.</item>
+        <item>You have to pay money when hiring a new employee, depending on their type.</item>
+        <item>You pay every employee $1 each turn.</item>
+        <item>You can\'t fire anybody.</item>
+        <item>Each purchaser buys 1 raw material each turn.</item>
+        <item>Each producer produces 1 product each turn.</item>
+        <item>Each salesperson sells 1 product each turn.</item>
+        <item>Each manager hires a new employee each turn.</item>
+        <item>The type of the new employee depends on the type of the manager.</item>
+        <item>Managers can hire other types of managers.</item>
+        <item>Have as many employees as possible after %d turns.</item>
+    </string-array>
 </resources>

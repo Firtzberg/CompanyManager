@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Chef de l\'Entreprise</string>
+    <string name="continu">Continuer</string>
+    <string name="instructions">Instructions</string>
+    <string name="new_game">Nouveau Jeu</string>
+    <string name="previous">Précédent</string>
+    <string name="next">Suivant</string>
+    <string name="high_scores">Meilleurs Scores</string>
+    <string name="remaining_turns">Tours restants: %d</string>
+    <string name="victory">Victoire</string>
+    <string name="won_after">Vous avez gagné après %d tours.</string>
+    <string name="game_over">Game Over</string>
+    <string name="lost_after">Vous avez perdu après %d tours.</string>
+    <string name="no_possible_actions">Il n\'y a aucune action possible.</string>
+    <string name="had_employees">Vous avez eu %s employés.</string>
+    <string-array name="instruction_texts">
+        <item>Le jeu est basé tourner.</item>
+        <item>Chaque tour vous pouvez exécuter une action - acheter, produire, vendre ou louer.</item>
+        <item>Vous perdez lorsque votre argent est en dessous de 0.</item>
+        <item>Vous gagnez de l\'argent en vendant des produits.</item>
+        <item>Vous perdez de l\'argent par l\'achat, le salaire et l\'embauche.</item>
+        <item>Matériau coûte 1 €.</item>
+        <item>Vous devez 1 matériau pour produire 1 produit.</item>
+        <item>Vous vendez 1 produit pour 5 €.</item>
+        <item>You have to pay money when hiring a new employee.</item>
+        <item>Vous payez chaque employé 1 € à chaque tour.</item>
+        <item>Vous ne pouvez pas congédier un employé.</item>
+        <item>Chaque acheteur achète 1 matière à chaque tour.</item>
+        <item>Chaque producteur produit 1 produit chaque tour.</item>
+        <item>Chaque vendeur vend 1 produit chaque tour.</item>
+        <item>Chaque gestionnaire embauche un nouvel employé à chaque tour.</item>
+        <item>Le type de l\'employé dépend du type du gestionnaire.</item>
+        <item>Les gestionnaires peuvent embaucher d\'autres types de gestionnaires.</item>
+        <item>Avoir autant d\'employés que possible après %d tours.</item>
+    </string-array>
+</resources>

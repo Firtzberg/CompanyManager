@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Betriebsleiter</string>
+    <string name="continu">Fortsetzen</string>
+    <string name="instructions">Anleitung</string>
+    <string name="new_game">Neues Spiel</string>
+    <string name="previous">Zurück</string>
+    <string name="next">Weiter</string>
+    <string name="high_scores">High Scores</string>
+    <string name="remaining_turns">Verblibene Züge: %d</string>
+    <string name="victory">Gewonnen!</string>
+    <string name="won_after">Du hast nach %d Zügen gewonnen.</string>
+    <string name="game_over">Game Over</string>
+    <string name="lost_after">Du hast nach %d Zügen verloren.</string>
+    <string name="no_possible_actions">Keine Aktion ist möglich.</string>
+    <string name="had_employees">Du hattest insgesamt %s Eingestellte.</string>
+    <string-array name="instruction_texts">
+        <item>Das Spiel ist Zug basiert.</item>
+        <item>In jedem Zug musst du etwas unternehmen - kaufen, verarbeiten, verkaufen oder jemanden einstellen.</item>
+        <item>Du verlierst wenn das Geld unter 0 ist.</item>
+        <item>Du verdienst Geld mit Verkauf von Produkten.</item>
+        <item>Du verlierst Geld mit Kaufen, Einstellungen und Bezahlungen.</item>
+        <item>Ein Stuck Material kostet 1€.</item>
+        <item>Die Herstellung eines Produkts verbraucht 1 Stuck Material.</item>
+        <item>Ein Produkt wird für 5€ verkauft.</item>
+        <item>Die Einstellung eines neuen Arbeiters kostet Geld, abhängig vom Typ.</item>
+        <item>In jedem Zug bezahlst du jeden Eingestellten 1€.</item>
+        <item>Du kannst niemanden feuern.</item>
+        <item>Jeder Besteller kauft 1 Stuck Material in jedem Zug.</item>
+        <item>Jeder Verarbeiter stellt 1 Produkt in jedem Zug her.</item>
+        <item>Jeder Verkäufer verkauft 1 Produkt in jedem Zug.</item>
+        <item>Jeder Leiter stellt 1 neuen Arbeiter in jedem Zug ein.</item>
+        <item>Der Typ des neuen Eingestellten hängt vom Typ des Leiters ab.</item>
+        <item>Leiter können andere Leitertypen einstellen.</item>
+        <item>Hab nach %d Zügen so viele Eingestellte, wie du kannst.</item>
+    </string-array>
+</resources>
