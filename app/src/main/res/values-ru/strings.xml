@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Руководитель компании</string>
+    <string name="title_activity_scores">High Score Activity</string>
+    <string name="title_activity_game">Game Activity</string>
+    <string name="title_activity_instructions">Instructions Activity</string>
+    <string name="continu">Продолжить</string>
+    <string name="instructions">Инструкции</string>
+    <string name="new_game">Новая игра</string>
+    <string name="previous">Назад</string>
+    <string name="next">Далее</string>
+    <string name="high_scores">Лучший результат</string>
+    <string name="new_game_title">Новая игра?</string>
+    <string name="new_game_warning">Данные будут стерты!</string>
+    <string name="remaining_turns">Остальные ходы: %d</string>
+    <string name="victory">Победа</string>
+    <string name="won_after">Вы выиграли после %d ходов.</string>
+    <string name="game_over">Конец игры</string>
+    <string name="lost_after">Вы потеряли после %d ходов.</string>
+    <string name="no_possible_actions">Нет возможные ходы</string>
+    <string name="had_employees">Вы были в целом %s сотрудников.</string>
+    <string-array name="instruction_texts">
+        <item>Это пошаговая игра.</item>
+        <item>Каждый ход вы можете выполнить одного действия - купить, производить, продавать или арендовать.</item>
+        <item>Игра заканчивается, когда ваши деньги падает ниже 0.</item>
+        <item>Вы зарабатываете деньги, продавая продукты.</item>
+        <item>Вы теряете деньги, покупая, зарплату и нанимать.</item>
+        <item>Сырье стоит 1€.</item>
+        <item>Вы должны 1 сырье для производства 1 продукт.</item>
+        <item>Вы продаете продукт 1 за 5€.</item>
+        <item>Вы должны заплатить деньги при найме нового работника, в зависимости от их типа.</item>
+        <item>Вы платите каждому сотруднику 1€ каждом ходу.</item>
+        <item>Вы не можете уволить никого. Это не Америка.</item>
+        <item>Каждый покупатель покупает 1 сырье каждый ход.</item>
+        <item>Каждый производитель выпускает 1 продукт каждый ход.</item>
+        <item>Каждый продавец продает 1 продукт каждый ход.</item>
+        <item>Каждый менеджер нанимает нового работника каждый ход.</item>
+        <item>Тип нового работника зависит от типа менеджера.</item>
+        <item>Менеджеры могут нанять других типов менеджеров.</item>
+        <item>Есть так много работники, как возможные после %d ходов.</item>
+    </string-array>
+</resources>

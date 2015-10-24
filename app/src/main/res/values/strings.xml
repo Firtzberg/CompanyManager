@@ -9,6 +9,8 @@
     <string name="previous">Previous</string>
     <string name="next">Next</string>
     <string name="high_scores">High Scores</string>
+    <string name="new_game_title">New game?</string>
+    <string name="new_game_warning">All data will be erased!</string>
     <string name="remaining_turns">Remaining turns: %d</string>
     <string name="victory">Victory</string>
     <string name="won_after">You won after %d turns.</string>

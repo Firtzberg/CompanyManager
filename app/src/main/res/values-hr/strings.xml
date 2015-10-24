@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Direktor poduzeća</string>
+    <string name="app_name"> </string>
+    <string name="title_activity_scores">High Score Activity</string>
+    <string name="title_activity_game">Game Activity</string>
+    <string name="title_activity_instructions">Instructions Activity</string>
     <string name="continu">Nastavi</string>
     <string name="instructions">Upute</string>
     <string name="new_game">Nova Igra</string>
     <string name="previous">Natrag</string>
     <string name="next">Dalje</string>
+    <string name="new_game_title">Nova Igra?</string>
+    <string name="new_game_warning">Trenutni podatci bit će izbrisani!</string>
     <string name="high_scores">Najbolji rezultati</string>
     <string name="remaining_turns">Preostali potezi: %d</string>
     <string-array name="instruction_texts">
@@ -14,13 +19,13 @@
         <item>Izgubili ste kada novac padne ispod 0.</item>
         <item>Zarađujete novac prodajom proizvoda.</item>
         <item>Gubite novac kupovinom, isplatom plaća i zapošljavanjem.</item>
-        <item>Cijena 1 materijala je 1€.</item>
-        <item>Za izradu 1 proizvoda je potreban 1 materijal.</item>
+        <item>Cijena 1 sirovine je 1€.</item>
+        <item>Za izradu 1 proizvoda je potrebna 1 sirovina.</item>
         <item>Prodajom 1 proizvoda se zaradi 5€.</item>
         <item>Zapošljavanje zahtjeva novčano ulaganje, ovisno o vrsti novog zaposlenika.</item>
         <item>Svaki potez plaćate svakog zaposlenika 1€.</item>
         <item>Ne možete otpuštati zaposlenike.</item>
-        <item>Dobaljač u svakom potezu kupuje 1 materijal.</item>
+        <item>Dobaljač u svakom potezu kupuje 1 sirovinu.</item>
         <item>Prerađivač u svakom potezu izradi 1 proizvod.</item>
         <item>Prodavač u svakom potezu proda 1 proizvod.</item>
         <item>Voditelj u svakom potezu zapošljava novog zaposlenika.</item>

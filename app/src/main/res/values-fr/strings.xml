@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Chef de l\'Entreprise</string>
+    <string name="title_activity_scores">High Score Activity</string>
+    <string name="title_activity_game">Game Activity</string>
+    <string name="title_activity_instructions">Instructions Activity</string>
     <string name="continu">Continuer</string>
     <string name="instructions">Instructions</string>
-    <string name="new_game">Nouveau Jeu</string>
+    <string name="new_game">Nouvelle Partie</string>
     <string name="previous">Précédent</string>
     <string name="next">Suivant</string>
     <string name="high_scores">Meilleurs Scores</string>
+    <string name="new_game_title">Nouvelle Partie?</string>
+    <string name="new_game_warning">Toutes les données seront effacées!</string>
     <string name="remaining_turns">Tours restants: %d</string>
     <string name="victory">Victoire</string>
     <string name="won_after">Vous avez gagné après %d tours.</string>

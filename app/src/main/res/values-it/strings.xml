@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Gestore dell\'Azienda</string>
+    <string name="title_activity_scores">High Score Activity</string>
+    <string name="title_activity_game">Game Activity</string>
+    <string name="title_activity_instructions">Instructions Activity</string>
     <string name="continu">Continua</string>
     <string name="instructions">Istruzioni</string>
     <string name="new_game">Nuova Partita</string>
-    <string name="previous">Precedente</string>
-    <string name="next">Successivo</string>
+    <string name="previous">Indietro</string>
+    <string name="next">Avanti</string>
     <string name="high_scores">Miglior punteggio</string>
-    <string name="remaining_turns">Giri rimanenti: %d</string>
+    <string name="new_game_title">Nuova Partita?</string>
+    <string name="new_game_warning">Tutti i dati saranno cancellati!</string>
+    <string name="remaining_turns">Giri rimasti: %d</string>
     <string name="victory">Vittoria</string>
     <string name="won_after">Lei ha vinto dopo %d giri.</string>
     <string name="game_over">Partita Persa</string>
     <string name="lost_after">Lei ha perso dopo %d giri.</string>
     <string name="no_possible_actions">Non ci sono azioni possibili.</string>
-    <string name="had_employees">Ha avuto un totale di %s impiegato</string>
+    <string name="had_employees">Ha avuto un totale di %s impiegati</string>
     <string-array name="instruction_texts">
         <item>Il gioco è a turni.</item>
         <item>A ogni turno è possibile eseguire un\'azione - acquistare, produrre, vendere o affittare.</item>

@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Betriebsleiter</string>
+    <string name="title_activity_scores">High Score Activity</string>
+    <string name="title_activity_game">Game Activity</string>
+    <string name="title_activity_instructions">Instructions Activity</string>
     <string name="continu">Fortsetzen</string>
     <string name="instructions">Anleitung</string>
     <string name="new_game">Neues Spiel</string>
     <string name="previous">Zurück</string>
     <string name="next">Weiter</string>
     <string name="high_scores">High Scores</string>
+    <string name="new_game_title">Neues Spiel?</string>
+    <string name="new_game_warning">Alle Daten werden gelöscht!</string>
     <string name="remaining_turns">Verblibene Züge: %d</string>
     <string name="victory">Gewonnen!</string>
     <string name="won_after">Du hast nach %d Zügen gewonnen.</string>
@@ -24,7 +29,7 @@
         <item>Die Herstellung eines Produkts verbraucht 1 Stuck Material.</item>
         <item>Ein Produkt wird für 5€ verkauft.</item>
         <item>Die Einstellung eines neuen Arbeiters kostet Geld, abhängig vom Typ.</item>
-        <item>In jedem Zug bezahlst du jeden Eingestellten 1€.</item>
+        <item>In jedem Zug bezahlst du jeden Eingestellten 1 €.</item>
         <item>Du kannst niemanden feuern.</item>
         <item>Jeder Besteller kauft 1 Stuck Material in jedem Zug.</item>
         <item>Jeder Verarbeiter stellt 1 Produkt in jedem Zug her.</item>

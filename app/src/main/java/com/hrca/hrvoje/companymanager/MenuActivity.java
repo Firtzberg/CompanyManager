@@ -63,8 +63,8 @@ public class MenuActivity extends Activity {
         File save = getBaseContext().getFileStreamPath(GameActivity.saveFileName);
         if (save.exists()) {
             new AlertDialog.Builder(this)
-                    .setTitle("New game?")
-                    .setMessage("All data will be erased!")
+                    .setTitle(this.getString(R.string.new_game_title))
+                    .setMessage(this.getString(R.string.new_game_warning))
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override

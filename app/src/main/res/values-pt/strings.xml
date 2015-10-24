@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Gerente da empresa</string>
+    <string name="title_activity_scores">High Score Activity</string>
+    <string name="title_activity_game">Game Activity</string>
+    <string name="title_activity_instructions">Instructions Activity</string>
+    <string name="continu">Continuar</string>
+    <string name="instructions">Instruções</string>
+    <string name="new_game">Novo Jogo</string>
+    <string name="previous">Anterior</string>
+    <string name="next">Próximo</string>
+    <string name="high_scores">Pontuação máxima</string>
+    <string name="new_game_title">Novo Jogo?</string>
+    <string name="new_game_warning">Todos os dados serão apagados!</string>
+    <string name="remaining_turns">Turnos restantes: %d</string>
+    <string name="victory">Vitória</string>
+    <string name="won_after">Ganhou após %d turnos.</string>
+    <string name="game_over">Fim do jogo</string>
+    <string name="lost_after">Perdeste após %d turnos.</string>
+    <string name="no_possible_actions">Não há ação possível.</string>
+    <string name="had_employees">Você teve um total de 10 empregados.</string>
+    <string-array name="instruction_texts">
+        <item>O jogo é baseado em turnos.</item>
+        <item>Cada turno é possível executar uma ação - comprar, produzir, vender ou alugar.</item>
+        <item>O jogo acaba quando o dinheiro estiver abaixo de 0.</item>
+        <item>Você ganha dinheiro com a venda de produtos.</item>
+        <item>Você perde dinheiro através da compra, contratação e pagamento de salários.</item>
+        <item>Matéria-prima custa 1 €.</item>
+        <item>Você precisa de uma matéria-prima para a produção de um produto.</item>
+        <item>Você vende um produto por 5 €.</item>
+        <item>Você paga dinheiro ao contratar um novo empregado, dependendo do seu tipo.</item>
+        <item>Você paga todo os empregados 1 € em cada turno.</item>
+        <item>Você não pode demitir ninguém.</item>
+        <item>Cada comprador adquire uma matéria-prima em cada turno.</item>
+        <item>Cada produtor produz um produto em cada turno.</item>
+        <item>Cada vendedor vende um produto em cada turno.</item>
+        <item>Cada gerente contrata um novo funcionário em cada turno.</item>
+        <item>O tipo do novo empregado depende do tipo do gerente.</item>
+        <item>Os gerentes podem contratar outros tipos de gestores.</item>
+        <item>Ter tantos funcionários quanto possível depois de %d turnos.</item>
+    </string-array>
+</resources>
