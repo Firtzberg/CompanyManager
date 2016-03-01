@@ -8,15 +8,36 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+
 import java.io.File;
 
 
 public class MenuActivity extends Activity {
 
+    //InterstitialAd mInterstitialAd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        /*
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(this.getResources().getString("ca-app-pub-8610807363905439/9246883308"));
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                requestNewInterstitial();
+                startActivity(new Intent(MenuActivity.this, ScoresActivity.class));
+            }
+        });
+
+        requestNewInterstitial();
+        */
     }
 
     @Override
@@ -26,6 +47,15 @@ public class MenuActivity extends Activity {
         File save = getBaseContext().getFileStreamPath(GameActivity.saveFileName);
         continu.setEnabled(save.exists());
     }
+
+    /*
+    private void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+
+        mInterstitialAd.loadAd(adRequest);
+    }*/
 
     /**
      * Start GameActivity.
@@ -51,7 +81,11 @@ public class MenuActivity extends Activity {
      * @param view The pressed view.
      */
     public void scores(View view) {
-        startActivity(new Intent(this, ScoresActivity.class));
+       /* if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {*/
+            startActivity(new Intent(this, ScoresActivity.class));
+        //}
     }
 
     /**
