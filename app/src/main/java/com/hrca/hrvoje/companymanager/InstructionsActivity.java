@@ -39,6 +39,7 @@ public class InstructionsActivity extends Activity {
         this.mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("1779D7EB87ED1FC4A2DCB69B5D963A1A")
                 .build();
         this.mAdView.loadAd(adRequest);
     }
