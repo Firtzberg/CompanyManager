@@ -9,9 +9,12 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 
 public class InstructionsActivity extends Activity {
+    private Tracker mTracker;
 
     private AdView mAdView;
 
@@ -42,6 +45,10 @@ public class InstructionsActivity extends Activity {
                 .addTestDevice("1779D7EB87ED1FC4A2DCB69B5D963A1A")
                 .build();
         this.mAdView.loadAd(adRequest);
+
+        // Google analytics tracking
+        AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
     }
 
     void updateDisplay(InstructionView instructionView) {
@@ -59,10 +66,22 @@ public class InstructionsActivity extends Activity {
 
     public void previous(View view) {
         updateDisplay(this.adapter.previous());
+
+        mTracker.send(new HitBuilders.EventBuilder()
+                .setCategory("Listing")
+                .setAction("Previous")
+                .setValue(this.adapter.getPosition())
+                .build());
     }
 
     public void next(View view) {
         updateDisplay(this.adapter.next());
+
+        mTracker.send(new HitBuilders.EventBuilder()
+                .setCategory("Listing")
+                .setAction("Next")
+                .setValue(this.adapter.getPosition())
+                .build());
     }
 
     @Override
@@ -79,6 +98,8 @@ public class InstructionsActivity extends Activity {
         if (mAdView != null) {
             mAdView.resume();
         }
+        mTracker.setScreenName(this.getLocalClassName());
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
     @Override

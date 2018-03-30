@@ -10,6 +10,9 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -21,6 +24,7 @@ import java.util.ArrayList;
 
 
 public class GameActivity extends Activity implements AdapterView.OnItemClickListener {
+    private Tracker mTracker;
 
     /**
      * Number of turn after which the game is won.
@@ -97,6 +101,17 @@ public class GameActivity extends Activity implements AdapterView.OnItemClickLis
 
         this.turnsView = (TextView) findViewById(R.id.turnsView);
         this.turnsView.setText(formattedString(R.string.remaining_turns, maxTurns - this.turn));
+
+        // Google analytics tracking
+        AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mTracker.setScreenName(this.getLocalClassName());
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
     /**

@@ -11,12 +11,14 @@ import android.widget.Button;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import java.io.File;
 
 
 public class MenuActivity extends Activity {
-
+    private Tracker mTracker;
     //InterstitialAd mInterstitialAd;
 
     @Override
@@ -38,6 +40,10 @@ public class MenuActivity extends Activity {
 
         requestNewInterstitial();
         */
+
+        // Google analytics tracking
+        AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
     }
 
     @Override
@@ -46,6 +52,9 @@ public class MenuActivity extends Activity {
         Button continu = (Button) findViewById(R.id.continu);
         File save = getBaseContext().getFileStreamPath(GameActivity.saveFileName);
         continu.setEnabled(save.exists());
+
+        mTracker.setScreenName(this.getLocalClassName());
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
     /*
@@ -118,5 +127,10 @@ public class MenuActivity extends Activity {
         } else {
             this.continu(view);
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
     }
 }

@@ -7,10 +7,13 @@ import android.widget.ListView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import java.util.ArrayList;
 
 public class ScoresActivity extends Activity {
+    private Tracker mTracker;
 
     private AdView mAdView;
 
@@ -35,6 +38,10 @@ public class ScoresActivity extends Activity {
         }
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, scoreTexts);
         scoresView.setAdapter(adapter);
+
+        // Google analytics tracking
+        AnalyticsApplication application = (AnalyticsApplication) getApplication();
+        mTracker = application.getDefaultTracker();
     }
 
     @Override
@@ -51,6 +58,8 @@ public class ScoresActivity extends Activity {
         if (mAdView != null) {
             mAdView.resume();
         }
+        mTracker.setScreenName(this.getLocalClassName());
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
     @Override
