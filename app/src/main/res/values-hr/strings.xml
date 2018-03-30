@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name"> </string>
+    <string name="app_name">Upravitelj poduzeća</string>
     <string name="title_activity_scores">High Score Activity</string>
     <string name="title_activity_game">Game Activity</string>
     <string name="title_activity_instructions">Instructions Activity</string>
